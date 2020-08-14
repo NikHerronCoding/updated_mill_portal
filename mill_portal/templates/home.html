@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="jumbotron">
+    {% load static %}
+    <img src="{% static "OSM-Logotype-Light-Full-Color-RGB-Large.png" %}" , style="width:250px;">
+    <h1 class="display-4">OSM Shield Mill Portal</h1>
+    <p class="lead">Welcome to the OSM Shield mill portal! Here you can calculate what recipes to use along with how to
+        use them.</p>
+    <hr class="my-4">
+    <p> Click the button below to go to our calculator to get started.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/calculator/home" role="button">Login</a>
+        <a class="btn btn-primary btn-lg" href="/calculator/home" role="button">Contact Us</a>
+    </p>
+</div>
+
+{% endblock %}
