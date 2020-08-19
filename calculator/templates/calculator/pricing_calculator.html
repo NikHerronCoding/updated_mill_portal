@@ -1,0 +1,108 @@
+{%extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">OSM Shield Pricing Calculator</h1>
+    <p class="lead">Use this calculator to calculate the cost or a specific recipe on a fabric.</p>
+  </div>
+</div>
+
+
+<div style="width: 50%">
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="customer">  End Customer:</label>
+    <input type="text" class="form-control" id="customer" aria-describedby="end_customer" placeholder="Customer" name="customer">
+    </div>
+    <div class="form-group">
+    <label for="mill">  Mill Name: </label>
+    <input type="text" class="form-control" id="mill" placeholder="Mill Name" name="mill">
+    </div>
+    <div class="form-group">
+    <label for="fabric_name">Fabric Name / Style ID:</label>
+    <input type="text" class="form-control" id="fabric_name" placeholder="Fabric Name" name="fabric_name">
+    </div>
+    <div class="form-group">
+    <label for="fabric_weight">Fabric Weight:</label>
+    <input type="text" class="form-control" id="fabric_weight" placeholder="Fabric Weight" name="fabric_weight">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="weight_unit_1" name="weight_unit" value="GSM">
+            <label class="form-check-label" for="weight_unit_1">g/m^2 (gsm)</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineCheckbox2" name="weight_unit" value="oz/yd^2">
+            <label class="form-check-label" for="inlineCheckbox2">oz/yd^2 (oz/yd)</label>
+        </div>
+    </div>
+
+        <div class="form-group">
+    <label for="fabric_width">Fabric Width:</label>
+    <input type="text" class="form-control" id="fabric_weight" placeholder="Fabric Width" name="fabric_width">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="width_unit_1" name="width_unit" value="in">
+            <label class="form-check-label" for="width_unit_1">inches (in.)</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineCheckbox2" name="width_unit" value="cm">
+            <label class="form-check-label" for="inlineCheckbox2"> centimeters (cm.)</label>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="fabric_weight">Run Length:</label>
+    <input type="text" class="form-control" id="run_length" placeholder="Run Length" name="run_length">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="run_length_unit_1" name="length_unit" value="yd)">
+            <label class="form-check-label" for="run_length_unit_1">yards (yd)</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineCheckbox2" name="run_length_unit" value="m">
+            <label class="form-check-label" for="inlineCheckbox2">meters (m)</label>
+        </div>
+    </div>
+    <div class="form-group">
+    <label for="wpu_known"> Is the Wet Pick-up (wpu) known? </label>
+    <select class="form-control" id="wpu_known"name="wpu_known">
+        <option value="yes">Yes, I will enter the wpu below</option>
+        <option value="no"> No, I will assume the WPU to equal 100%</option>
+    </select>
+    <label for="wpu">Wet Pick-up:</label>
+    <input type="text" class="form-control" id="wpu" placeholder="100%" name="wpu">
+    </div>
+
+        <div class="form-group">
+    <label for="cure_known"> Are the curing specifications known? </label>
+    <select class="form-control" id="cure_known"name="cure_known">
+        <option value="yes">Yes, I will enter the cure specs below</option>
+        <option value="no"> No, I want a suggestion for cure specs</option>
+    </select>
+    <label for="cure_temp">Cure Temperature:</label>
+    <input type="text" class="form-control" id="cure_temp" placeholder="Please enter a value from 120c-210c" name="cure_temp">
+        <label for="cure_time">Curing Time:</label>
+    <input type="text" class="form-control" id="cure_time" placeholder="Please enter the time in seconds(s)" name="cure_time">
+    </div>
+
+    <div class="form-group">
+    <label for="trough_size">  Trough Size (kg):</label>
+    <input type="text" class="form-control" id="trough_size" aria-describedby="trough_size" placeholder="Trough Size" name="trough_size">
+    </div>
+
+    <div class="form-group">
+    <label for="trough_size">  Minimum Bath (kg):</label>
+    <input type="text" class="form-control" id="minimum_bath" aria-describedby="minimum_bath" placeholder="Minimum Bath" name="minimum_bath">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+        <button href='/calculator/pricing_calculator' class="btn btn-primary" method="get">Reset</button>
+</form>
+</div>
+</div>
+
+{% endblock %}

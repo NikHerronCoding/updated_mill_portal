@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Database Maintenance</h1>
+    <p class="lead">This location is used for creation and maintenance of recipes. If you don't know how you got here, please exit this page.</p>
+
+    <a href="{% url 'calculator:db-create-link' %}" >Click Here to create the database with info on the text file on the server</a>
+  </div>
+</div>
+
+{% endblock %}
