@@ -1,0 +1,90 @@
+
+
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        <div class="row">
+          <div class="col-12 mb-0">
+            <h2 class="eyebrow mb-2">My Fabrics</h2>
+            </div>
+            <div class="col">
+
+                {% if fabrics %}
+                 {% for fabric in fabrics %}
+                    <a href="{% url 'fabrics:fabric_detail' fabric.id %}" class="job row align-items-center">
+                      <span class="col-md-6 fs-22 font-weight-light text-white">
+                        {{fabric.fabric_name}}
+                      </span>
+                    <span class="col-md-3">
+                        {{fabric.end_customer}}
+                      </span>
+                      <span class="col-md-3 text-md-right small">
+                        {{fabric.fabric_weight | floatformat}} {{fabric.fabric_weight_unit}}
+                      </span>
+                    </a>
+                  {% endfor %}
+                  {% else %}
+                  There are no fabrics in the library yet. Click below to add one.
+                  {% endif %}
+            </div>
+        </div>
+
+
+
+    <a href="{% url 'fabrics:fabric_create'%}"><button class= "btn btn-outline-white btn-rounded">Add Fabric</button></a>
+
+            {% if fabrics_len %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        {% else %}
+        <a href="{% url 'fabrics:fabric_list_all'%}"><button class="btn btn-outline-white btn-rounded">See all of my Fabrics</button></a>
+        <br>
+        <br>
+        {% endif %}
+
+
+{% endblock %}

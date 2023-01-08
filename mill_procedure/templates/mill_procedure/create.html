@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>Create Mill Procedure</h2>
+<br>
+<form method="POST">
+    {% csrf_token %}
+
+    {{ mill_procedure_form | crispy }}
+
+    <button type="submit" class= "btn btn-outline-white btn-rounded">Submit</button>
+
+</form>
+<br>
+<a href="{% url 'mill_procedure:mill_procedure_list'%}"><button class="btn btn-outline-white btn-rounded">Cancel</button></a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

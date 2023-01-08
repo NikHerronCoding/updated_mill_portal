@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form  action="{% url 'recipes:make_recipes' %}" method="POST">
+    {% csrf_token %}
+<button class="btn btn-danger" type="submit" formmethod="POST">Click this button to update the recipe concentration / recipe name database.</button>
+</form>
+{% endblock%}

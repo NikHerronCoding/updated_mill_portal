@@ -1,0 +1,19 @@
+<head>
+
+</head>
+
+<html>
+
+
+<form method="POST" id="composition_form">
+    {% csrf_token %}
+    {{ form }}
+    {{ formset }}
+    <button type='submit'>Submit</button>
+
+</form>
+
+
+
+
+</html>

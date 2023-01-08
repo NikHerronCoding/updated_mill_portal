@@ -1,53 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>OSM Shield Portal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'vendor.css' %}"/>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSM Shield Mill Portal</title>
-</head>
-<body>
+  </head>
+  <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/calculator/recipe_calculator">Recipe Calculator <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/calculator/pricing_calculator">Pricing Calculator</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Contact Us</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link disabled" href="#">SDS / TDS Sheets</a>
-      </li>
-    </ul>
-    <ul class ="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-        <li class ="nav-item active">
-            <button type="button" class="btn btn-primary">Login</button>
-        </li>
-    </ul>
-  </div>
-</nav>
+
+    <!-- header -->
+    <header class="header-sticky header-dark">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="{% url 'osm-home'%}">
+            <img class="navbar-logo navbar-logo-light" src="{%static 'pics/OSM-Logomark-Light-Full-Color-RGB.png' %}" alt="Logo" >
+            <img class="navbar-logo navbar-logo-dark" src="{%static 'pics/OSM-Logomark-Dark-Full-Color-RGB-Large.png' %}" alt="Logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav align-items-center mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'osm-home'%}" role="button">
+                  Home
+                </a>
+              </li>
+              {% if user.is_authenticated %}
+
+
+
+              {% for group_for in request.user.groups.all %}
+                {% if group_for.name == 'brand_user' %}
+
+                 <!-- brand specific navbar items if there needs to be some -->
+
+                {% elif group_for.name == 'mill_user' %}
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Stuff
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{%url 'fabrics:fabric_list' %}">
+                    <span>Fabrics</span>
+                    <p>Access and edit your fabric library</p>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'mill_procedure:mill_procedure_list'%}">
+                    <span>Mill Procedures</span>
+                    <p>Access your mill procedures</p>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{%url 'price_calculator:pricing_calculator_list' %}">
+                    <span>Pricing Calculator</span>
+                    <p>Access and edit your pricing calculator entries</p>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'recipe_calculator:list'%}">
+                    <span>Recipe Calculator</span>
+                    <p>Access your recipe calculator entries</p>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'docs:docs_home'%}">
+                    <span>Documents</span>
+                    <p>Access your saved TDS, SDS, and other documents</p>
+                  </a>
+                </div>
+              </li>
+              <li class="nav-item dropdown dropdown-mega">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tools
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+                  <div class="row">
+                    <div class="col">
+                      <ul class="mega-list">
+                        <li><a href="{% url 'fabrics:fabric_create'%}">Add a new fabric to my library</a></li>
+                        <li><a href="{% url 'mill_procedure:mill_procedure_create' %}">Generate a new procedure</a></li>
+                        <li><a href="{% url 'recipe_calculator:create'%}">Recipe Recommendation</a></li>
+                        <li><a href="{% url 'price_calculator:pricing_calculator_create'%}">Get a cost estimate on a recipe</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+
+                  <div class="row">
+                    <div class="col">
+                    </div>
+
+            </ul>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+
+            <ul class="navbar-nav align-items-center mr-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="{% url 'logout' %}">Sign Out</a>
+              </li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav align-items-center mr-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="{% url 'login' %}">Sign in</a>
+              </li>
+            </ul>
+        {% endif %}
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- header -->
+
+
+    <!-- cover -->
+    <section class="layers p-0">
+     <div class="layers-foreground">
+
+    <div class="container text-white">
+
+
     {% block content %}
+
+
     {% endblock %}
-</body>
+
+    </div>
+
+         </div>
+          <div class="layers-background bg-gray pattern">
+        <div class="layers-background-overlay"
+          data-top-top="opacity: 0;"
+          data-top-bottom="opacity: 0.9"></div>
+
+    </section>
+    <!-- / cover -->
+
+
+
+
+
+    <!-- footer -->
+    <footer class="bg-dark text-white">
+      <div class="container py-5">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-md-5 text-center text-md-left">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'docs:docs_home'%}">Documentation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://www.osmshield.com/">Product Website</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2 text-center">
+            <img class="logo-sm" src="{% static 'pics/ZT White Text Only Blue Line.png' %}" alt="Logo">
+          </div>
+          <div class="col-md-5 text-center text-md-right">
+
+            <div>  <a href="https://www.facebook.com/osmshield/" class="container-fluid"><i class="fab fa-facebook-f"></i></a>
+
+             <a href="https://www.instagram.com/osmshield/?hl=en" class="container-fluid"><i class="fab fa-instagram"></i></a>
+
+              <a href="https://www.linkedin.com/company/osm-shield/about/" class="container-fluid"><i class="fab fa-linkedin-in"></i></a></div>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- / footer -->
+
+    <script src="https://kit.fontawesome.com/d529b74d5d.js" crossorigin="anonymous"></script>
+    <script src="{% static 'vendor.js' %}"></script>
+    <script src="{% static 'app.js' %}"></script>
+  </body>
 </html>

@@ -1,0 +1,81 @@
+
+
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        <h1 class="eyebrow mb-2">My Recipe Calculator Entries</h1>
+        <div class="row">
+          <div class="col-12 mb-0">
+
+            </div>
+            <div class="col">
+                 {% if recipe_calculator_context %}
+                 {% for recipe_calculator_data in recipe_calculator_context %}
+                    <a href="{% url 'recipe_calculator:detail' recipe_calculator_data.recipe_calculator.id %}" class="job row align-items-center">
+                      <span class="col-md-6 fs-22 font-weight-light text-white">
+                        {{recipe_calculator_data.recipe_calculator.fabric}} {{recipe_calculator_data.recipe_calculator.fabric.fabric_weight}} {{recipe_calculator_data.recipe_calculator.fabric.fabric_weight_unit}}
+                      </span>
+                    <span class="col-md-3 font-weight-light text-white">
+                        {{recipe_calculator_data.recipe}}
+                      </span>
+                      <span class="col-md-3 font-weight-light text-white">
+                        {{recipe_calculator_data.cure_specs}}
+                    </a>
+                  {% endfor %}
+                 {% else %}
+                 There are no pricing calculator entries yet. Click below to add one.
+                 {% endif %}
+            </div>
+        </div>
+        <a href="{% url 'recipe_calculator:create'%}"><button class= "btn btn-outline-white btn-rounded"> Add New </button></a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+            <br>
+            <br>
+            <br>
+          <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-md-8 text-center text-shadow">
+                <h1 class="display-2 mb-2"><b>Delete: </b> {{ mill_procedure}}</h1>
+                <p class="lead">Warning: If you delete this Mill Procedure it will be gone forever</p>
+                 <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete Mill Procedure</button>
+                 </form>
+            </div>
+        </div>
+
+
+
+
+{% endblock%}

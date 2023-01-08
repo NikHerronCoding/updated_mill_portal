@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="row justify-content-center align-items-center vh-100">
+    <div class="col-md-8 text-center text-shadow">
+        <h1 class="display-2 mb-2">OSM Chemical Documentation</h1>
+        <p class="lead mb-3">Download SDS and TDS Sheets of OSM Chemicals.</p>
+        <div id="datainput2">
+            <a href="{% url 'docs:sds_list' %}"><h1>SDS Sheets</h1></a>
+            <br>
+            <br>
+            <a href="{% url 'docs:tds_list' %}"><h1>TDS Sheets </h1></a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

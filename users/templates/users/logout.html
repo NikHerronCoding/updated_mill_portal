@@ -1,0 +1,30 @@
+{% extends 'calculator/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div style="padding:20px;width:50%; margin:0 auto;">
+    <form method="POST">
+        {%csrf_token %}
+
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Please Login to Continue:</legend>
+            {{ form | crispy }}
+
+            <div class="form-group">
+              <a href="{% url 'users:login'%}" > <input class="btn btn-primary" type="submit" value="=Log in Again"> </a>
+            </div>
+
+        </fieldset>
+
+
+
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted"> If you need to get an account you can e-mail support@osmshield.com and we will help set one up for you. </small>
+    </div>
+
+</div>
+
+{% endblock %}

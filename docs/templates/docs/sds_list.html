@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+        <div class="row">
+          <div class="col-12 mb-0">
+            <h2 class="eyebrow mb-2">Individual</h2>
+            </div>
+            <div class="col">
+                 {% for item in individual %}
+                    <a href="{% url 'docs:sds_stream' item %}" class="job row align-items-center">
+                      <span class="col-md-6 fs-22 font-weight-light text-white">
+                        {{item}}
+                      </span>
+                    </a>
+                  {% endfor %}
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+          <div class="col-12 mb-0">
+            <h2 class="eyebrow mb-2">Mixed</h2>
+          </div>
+            <div class="col">
+
+          {% for item in mixed %}
+
+            <a href="{% url 'docs:sds_stream' item %}" class="job row align-items-center">
+              <span class="col-md-6 fs-22 font-weight-light text-white">
+                {{item}}
+              </span>
+            </a>
+          {% endfor %}
+            </div>
+        </div>
+
+{% endblock %}

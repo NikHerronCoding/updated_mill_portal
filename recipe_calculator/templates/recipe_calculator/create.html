@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>Calculate Recipe (Repellent Chemistries Only)</h2>
+<br>
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form | crispy }}
+
+    <button type="submit" class= "btn btn-outline-white btn-rounded">Submit</button>
+
+</form>
+<br>
+<a href="{% url 'recipe_calculator:list'%}"><button class="btn btn-outline-white btn-rounded">Cancel</button></a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

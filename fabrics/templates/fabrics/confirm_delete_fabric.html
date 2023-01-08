@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+
+          <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-md-8 text-center text-shadow">
+                <h1 class="display-2 mb-2"><b>Delete: </b> {{ fabric.fabric_name }}</h1>
+                <p class="lead">Warning: If you delete this fabric it will be gone forever</p>
+                 <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete Fabric</button>
+                 </form>
+            </div>
+        </div>
+
+
+
+
+{% endblock%}

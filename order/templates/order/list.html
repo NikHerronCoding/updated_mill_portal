@@ -1,0 +1,83 @@
+{% extends 'base.html'%}
+
+
+
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h2>Welcome, {{ user.first_name }} </h2>
+
+<h1>Chemcial Orders for {{ brand }}</h1>
+
+
+          <div class="col-12 mb-0">
+
+            </div>
+            <div class="col">
+
+                {% if orders %}
+                 {% for order in orders %}
+                    <a href="{% url 'order:pdf-stream' order.id %}" class="job row align-items-center">
+                      <span class="col-md-6 fs-22 font-weight-light text-white">
+                        Order #{{order.order_number}}
+                      </span>
+                    <span class="col-md-3">
+                        {{ order.date.date }}
+                      </span>
+                      <span class="col-md-3 text-md-right small">
+                        Click Box for PDF Download
+                      </span>
+                    </a>
+                  {% endfor %}
+                  {% else %}
+                  There have been no orders placed yet. Please contact support@osmshield.com if you think this is a mistake.
+                  {% endif %}
+            </div>
+        </div>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock %}

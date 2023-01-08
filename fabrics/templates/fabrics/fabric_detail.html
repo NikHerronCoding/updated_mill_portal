@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+
+{% block content%}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3> Fabric Details </h3>
+
+<table class="table table-lined">
+                    <thead>
+                      <tr>
+                        <th scope="col">Fabric Name</th>
+                        <th scope="col">Mill Name</th>
+                        <th scope="col">Fabric Weight</th>
+                        <th scope="col">Fabric Width</th>
+                        <th scope="col">End Use</th>
+                        <th scope="col">Fabric Construction</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{ fabric_data.fabric_name }}</th>
+                        <td>{{fabric_data.mill_name }}</td>
+                        <td>{{fabric_data.fabric_weight}} {{fabric_data.fabric_weight_unit}}</td>
+                        <td>{{fabric_data.fabric_width }} {{fabric_data.fabric_width_unit}}</td>
+                        <td>{{fabric_data.end_use}}</td>
+                        <td>{{fabric_data.fabric_construction}}</td>
+                      </tr>
+                    </tbody>
+</table>
+<br>
+<a href="{% url 'fabrics:fabric_update' fabric.id %}"><button class="btn btn-outline-white btn-rounded">Update / Delete</button></a>
+<br>
+<br>
+<a href="{% url 'fabrics:fabric_list'%}"><button class="btn btn-outline-white btn-rounded">Back To Fabric Library</button></a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

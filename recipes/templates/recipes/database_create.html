@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Database Created</h1>
+    <p class="lead">Below is a list of the newly created Database Objects:.</p>
+  </div>
+</div>
+
+<ul>
+{% for item in concentrations %}
+ <li> Concentration: {{item.recipe_type}} {{item.concentration}} </li>
+{% endfor %}
+{% for item in recipe_names %}
+<li>
+    <p> Recipe Name: {{item.recipe_type}} {{item.ref_number}}</p>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

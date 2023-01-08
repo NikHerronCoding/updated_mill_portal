@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3> Fabric Details: </h3>
+
+<table class="table table-lined">
+                    <thead>
+                      <tr>
+                        <th scope="col">Fabric Name</th>
+                        <th scope="col">Mill Name</th>
+                        <th scope="col">Fabric Weight</th>
+                        <th scope="col">Fabric Width</th>
+                        <th scope="col">End Use</th>
+                        <th scope="col">Fabric Construction</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{ fabric_data.fabric_name }}</th>
+                        <td>{{fabric_data.mill_name }}</td>
+                        <td>{{fabric_data.fabric_weight}} {{fabric_weight.fabric_weight_unit}}</td>
+                        <td>{{fabric_data.fabric_width }} {{fabric_data.fabric_width_unit}}</td>
+                        <td>{{fabric_data.end_use}}</td>
+                        <td>{{fabric_data.fabric_construction}}</td>
+                      </tr>
+                    </tbody>
+</table>
+<br>
+<br>
+<h3> Recipe Calculator Details: </h3>
+
+<table class="table table-lined">
+                    <thead>
+                      <tr>
+                        <th scope="col">Fabric Name</th>
+                        <th scope="col">Chemistry Type</th>
+                        <th scope="col">Cure Temp / Cure Time</th>
+                        <th scope="col">Recommended Recipe</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{recipe_calculator.fabric.fabric_name}}</th>
+                        <td>{{recipe_calculator.chemistry_type }}</td>
+                        <td>{{recipe_calculator.finishing_temperature}}°C {{recipe_results.cure_time}}</td>
+                        <td> {{recipe_results.recipe_name}} {{recipe_results.recipe_concentration}} </td>
+                      </tr>
+                    </tbody>
+</table>
+
+<br>
+<br
+<br>
+<br>
+
+<a href=""><button class= "btn btn-outline-white btn-rounded">Download Spreadsheet Version</button></a>
+<br>
+<br>
+<a href="{% url 'recipe_calculator:update' recipe_calculator.id%}"><button class= "btn btn-outline-white btn-rounded">Update / Delete </button></a>
+
+<br>
+<br>
+<a href="{% url 'recipe_calculator:list' %}"><button class= "btn btn-outline-white btn-rounded">Back To Library </button></a>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+{% endblock %}

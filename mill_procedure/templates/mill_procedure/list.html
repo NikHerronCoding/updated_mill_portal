@@ -1,0 +1,84 @@
+
+
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        <div class="row">
+          <div class="col-12 mb-0">
+            <h2 class="eyebrow mb-2">My Mill Procedures</h2>
+            </div>
+            <div class="col">
+                {% if mill_procedures %}
+                 {% for mill_procedure in mill_procedures %}
+                    <a href="{% url 'mill_procedure:mill_procedure_detail' mill_procedure.id %}" class="job row align-items-center">
+                      <span class="col-md-6 fs-22 font-weight-light text-white">
+                        {{mill_procedure.fabric}} {{mill_procedure.fabric.fabric_weight}} {{mill_procedure.fabric.fabric_weight_unit}}
+                      </span>
+                    <span class="col-md-3 font-weight-light text-white">
+                        {{mill_procedure.cure_temp}}°C {{mill_procedure.cure_time}} Seconds
+                      </span>
+                      <span class="col-md-3 font-weight-light text-white">
+                        {{mill_procedure.recipe_name}} {{mill_procedure.recipe_concentration}}
+                      </span>
+                    </a>
+                  {% endfor %}
+                  {% else %}
+                  <p>There are no mill procedures in the database for this user. Please click below to add one.</p>
+                  {% endif %}
+                  <br>
+            </div>
+        </div>
+
+        <a href="{% url 'mill_procedure:mill_procedure_create'%}"><button class= "btn btn-outline-white btn-rounded">Create New</button></a>
+        <br>
+            <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+{% endblock %}

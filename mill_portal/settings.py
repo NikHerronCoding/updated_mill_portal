@@ -37,8 +37,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'calculator.apps.CalculatorConfig'
+    'docs.apps.DocsConfig',
+    'users.apps.UsersConfig',
+    'fabrics.apps.FabricsConfig',
+    'recipe_concentrations.apps.RecipeConcentrationsConfig',
+    'recipe_names.apps.RecipeNamesConfig',
+    'recipes.apps.RecipesConfig',
+    'brand.apps.BrandConfig',
+    'mill_procedure.apps.MillProcedureConfig',
+    'price_calculator.apps.PriceCalculatorConfig',
+    'recipe_calculator.apps.RecipeCalculatorConfig',
+    'crispy_forms',
+    'program.apps.ProgramConfig',
+    'order.apps.OrderConfig',
+    'supplier.apps.SupplierConfig',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,3 +138,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR + r'/' + r'mill_portal' + r'/static',
 ]
+
+LOGIN_REDIRECT_URL = 'osm-home'
+LOGOUT_REDIRECT_URL = 'osm-home'

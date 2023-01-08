@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ mill_procedure_form | crispy }}
+    <button type="submit" class= "btn btn-outline-white btn-rounded">Submit</button>
+</form>
+<br>
+
+{% endblock %}

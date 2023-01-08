@@ -1,0 +1,89 @@
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div style="padding:20px;width:50%; margin:0 auto;">
+    <form method="POST">
+        {%csrf_token %}
+
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Please Login to Continue:</legend>
+            {{ form | crispy }}
+
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+
+        </fieldset>
+
+
+
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted"> If you need to get an account you can e-mail <a href="mailto:support@osmshield.com">support@osmshield.com </a> and we will help set one up for you. </small>
+    </div>
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

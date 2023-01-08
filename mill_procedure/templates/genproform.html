@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Generate Procedure</title>
+    <link rel="stylesheet" href="/Users/lenamccord/Documents/go/app/assets/css/vendor.css"/>
+    <link rel="stylesheet" href="/Users/lenamccord/Documents/go/app/assets/css/style.css" />
+
+  </head>
+  <body class= "bg-dark">
+
+
+    <!-- header -->
+    <header class="header-sticky header-dark">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="index.html">
+            <img class="navbar-logo navbar-logo-light" src="/Users/lenamccord/Documents/Web Page Assets/OSM-Logomark-Light-Full-Color-RGB.png" alt="Logo" width="100" height="100">
+            <img class="navbar-logo navbar-logo-dark" src="/Users/lenamccord/Documents/Web Page Assets/_OSM-Logomark-Dark-Full-Color-RGB.png" alt="Logo" width="100" height="70">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav align-items-center mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/Users/lenamccord/Documents/Web Page Assets/Web Page.html" role="button">
+                  Home
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Stuff
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">
+                    <span>Mixing Recipes</span>
+                    <p>Access your custom mixing recipes</p>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <span>Fabrics</span>
+                    <p>Access and edit your fabric library</p>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <span>Documents</span>
+                    <p>Access your saved TDS, SDS, and other documents</p>
+                  </a>
+                </div>
+              </li>
+              <li class="nav-item dropdown dropdown-mega">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tools
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+                  <div class="row">
+                    <div class="col">
+                      <ul class="mega-list">
+                        <li><a href="components/index.html" class="highlight">Generate a new procedure</a></li>
+                        <li><a href="components/accordions.html">Add a new fabric to my library</a></li>
+                        <li><a href="components/backgrounds.html">Recipe Recommendation</a></li>
+                        <li><a href="components/blog.html">Pricing Calculator</a></li>
+                        <li><a href="components/boxes.html">Boxes</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav align-items-center mr-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#">Sign in</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- header -->
+
+
+
+    <section class="hero hero-with-header separator-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <h1 class="font-weight-bold">Generate Procedure</h1>
+            <p>Please enter the information below to generate your treatment procedure</p>
+          </div>
+        </div>
+      </div>
+
+    <!-- form controls -->
+
+
+
+
+
+          <div class="tab-pane" id="component-1-2" role="tabpanel" aria-labelledby="component-1-2">
+            <div class="component-example bg-dark text-white">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <form>
+                      <div class="form-group">
+                        <label for="Fabric Selection">Fabric ID</label>
+                        <select class="form-control" id="Fabric Selection">
+                          <option>Select a fabric from your library or enter a new fabric</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+
+
+          <!-- Modal -->
+                        <div class="tab-content" id="component-1">
+                          <div class="tab-pane show active" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
+                            <div class="component-example">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                      ADD NEW FABRIC
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header justify-content-end">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="icon-x"></span>
+                              </button>
+                            </div>
+                            <div class="modal-body text-center">
+                              <h3>Enter Fabric Info Below</h3>
+                              <div class="form-group">
+                                <label for="Fabric ID">Fabric ID</label>
+                                <input type="text" class="form-control" id="Fabric ID" placeholder="Enter the Fabric ID here">
+                              </div>
+                              <div class="form-group">
+                                <label for="Fiber Composition">Fiber Composition</label>
+                                <input type="text" class="form-control" id="Fiber Composition" placeholder="Enter the fiber composition here">
+                              </div>
+                              <div class="form-group">
+                                <label for="Fabric Weight">Fabric Weight</label>
+                                <input type="text" class="form-control" id="Fabric Weight" placeholder="Enter the fabric Weight here">
+                              </div>
+                              <div class="form-group">
+                                <label for="Fabric Weight Units">Units</label>
+                                <select class="form-control" id="Fabric Weight Units">
+                                  <option>g/m2</option>
+                                  <option>oz/yd2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary btn-block">Save to fabric library</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Modal -->
+
+                      <div class="form-group">
+                        <label for="chemistry type">Select the chemical you wish to use</label>
+                        <select class="form-control" id="chemistry type">
+                          <option>Select One</option>
+                          <option>NORR MV (048-003)</option>
+                          <option>NORR MV (047-003)</option>
+                          <option>EVO MV (025-003)</option>
+                          <option>EVO MV (032-003)</option>
+                          <option>Etc.</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect2">Example multiple select</label>
+                        <select multiple class="form-control" id="exampleFormControlSelect2">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- / form controls -->
+    <!-- footer -->
+    <footer class="bg-dark text-white">
+      <div class="container py-5">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-md-5 text-center text-md-left">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="components/index.html">Documentation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://themes.getbootstrap.com/product/go-multipurpose-landing-page-template/">Purchase</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2 text-center">
+            <img class="logo-sm" src="/Users/lenamccord/Documents/Web Page Assets/ZT White Text Only Blue Line.png" alt="Logo">
+          </div>
+          <div class="col-md-5 text-center text-md-right">
+            <ul class="socials">
+              <li><a href="" class="icon-facebook fs-20"></a></li>
+              <li><a href="" class="icon-instagram fs-20"></a></li>
+              <li><a href="" class="icon-twitter fs-20"></a></li>
+              <li><a href="" class="icon-linkedin fs-20"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- / footer -->
+
+
+    <script src="/Users/lenamccord/Documents/go/app/assets/js/vendor.js"></script>
+    <script src="/Users/lenamccord/Documents/go/app/assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+
+.asteriskField {
+display: none;
+}
+
+#datainput{padding:20px;width:50%;
+}
+#subinput{border-style:solid;border-color:black;border-width:5px;}
+
+.submitbutton{padding:30px;}
+
+#datainput2{padding:20px;width:90%;
+}
+
+.submitbutton{padding:30px;}
+
+.headerpadding{padding:20px;}
+
+.wrapper {
+    min-height: calc(100vh - 50px);
+}
+footer {
+    height: 50px;
+}
+

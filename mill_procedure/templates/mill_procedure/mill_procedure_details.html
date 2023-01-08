@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3> Fabric Details: </h3>
+
+<table class="table table-lined">
+                    <thead>
+                      <tr>
+                        <th scope="col">Fabric Name</th>
+                        <th scope="col">Mill Name</th>
+                        <th scope="col">Fabric Weight</th>
+                        <th scope="col">Fabric Width</th>
+                        <th scope="col">End Use</th>
+                        <th scope="col">Fabric Construction</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{ fabric_data.fabric_name }}</th>
+                        <td>{{fabric_data.mill_name }}</td>
+                        <td>{{fabric_data.fabric_weight}} {{fabric_weight.fabric_weight_unit}}</td>
+                        <td>{{fabric_data.fabric_width }} {{fabric_data.fabric_width_unit}}</td>
+                        <td>{{fabric_data.end_use}}</td>
+                        <td>{{fabric_data.fabric_construction}}</td>
+                      </tr>
+                    </tbody>
+</table>
+<br>
+<br>
+<h3> Mill Procedure Details: </h3>
+
+<table class="table table-lined">
+                    <thead>
+                      <tr>
+                        <th scope="col">Run Length</th>
+                        <th scope="col">Wet Pick Up</th>
+                        <th scope="col">Cure Temp / Cure Time</th>
+                        <th scope="col">Mixing Tank Size</th>
+                        <th scope="col">Recipe</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{ mill_procedure_data.run_length }} {{mill_procedure_data.run_length_unit }}</th>
+                        <td>{{mill_procedure_data.wet_pick_up_percent }}%</td>
+                        <td>{{mill_procedure_data.cure_temp}}°C {{mill_procedure_data.cure_time}} Seconds</td>
+                        <td>{{mixing_amounts.mixing_tank_size}} kg</td>
+                        <td>{{mill_procedure_data.recipe_name}}{{mill_procedure_data.recipe_concentration}}</td>
+                      </tr>
+                    </tbody>
+</table>
+
+<br>
+<br>
+
+<h3> Mixing Amounts: </h3>
+
+<table class="table table-lined">
+                    <thead>
+                      <tr>
+                        <th scope="col">Mixing Tank Size</th>
+                        <th scope="col">Amount {{mill_procedure_data.recipe_name}} {{mill_procedure_data.recipe_concentration}}</th>
+                        <th scope="col">Amount Water</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <th scope="row">{{mixing_amounts.mixing_tank_size}} kg</th>
+                        <td>{{mixing_amounts.amount_chemical}} kg</td>
+                        <td>{{mixing_amounts.amount_water}} kg</td>
+                      </tr>
+                    </tbody>
+</table>
+
+<br>
+<br>
+
+<a href="{% url 'mill_procedure:mill_procedure_spreadsheet' mill_procedure.id %}"><button class= "btn btn-outline-white btn-rounded">Download Spreadsheet Version</button></a>
+<br>
+<br>
+<a href="{% url 'mill_procedure:mill_procedure_update' mill_procedure.id %}"><button class= "btn btn-outline-white btn-rounded">Update / Delete </button></a>
+
+<br>
+<br>
+<a href="{% url 'mill_procedure:mill_procedure_list'%}"><button class= "btn btn-outline-white btn-rounded">Back To Library </button></a>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+{% endblock %}

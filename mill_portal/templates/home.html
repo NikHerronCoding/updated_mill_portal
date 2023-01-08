@@ -1,20 +1,43 @@
+    {% extends 'base.html' %}
 
-{% extends 'base.html' %}
+
+    {% block content %}
+
+                {% if user.is_authenticated %}
+                        {% for group_for in request.user.groups.all %}
+                            {% if group_for.name == 'brand_user' %}
+                                <div class="row justify-content-center align-items-center vh-100">
+                                    <div class="col-md-8 text-center text-shadow">
+                                         <h1 class="display-2 mb-2"><b>OSM SHIELD</b> Brand PORTAL</h1>
+                                        <p class="lead mb-3">View Orders, Download Traceability PDFs and More
+                                        <br>
+                                        <br>
+                                        <a href="{% url 'order:pdf-orders' %}" class="btn btn-outline-white btn-rounded">Go To My Orders</a>
+                                    </div>
+                                </div>
+
+                            {% elif group_for.name == 'mill_user' %}
+                                <div class="row justify-content-center align-items-center vh-100">
+                                    <div class="col-md-8 text-center text-shadow">
+                                        <h1 class="display-2 mb-2"><b>OSM SHIELD</b> PORTAL</h1>
+                                        <p class="lead mb-3">Generate treatment procedures, view pricing, order chemicals, and more.
+                                        <p> Select what you'd like to do. </p>
+                                        <a href="{% url 'mill_procedure:mill_procedure_create' %}" class="btn btn-outline-white btn-rounded">Generate a New Procedure</a>
+                                        <a data-scroll href="{% url 'recipe_calculator:create' %}" class="btn btn-rounded btn-outline-white ml-md-1">Get a recommended recipe</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        {% endfor %}
+                {% else %}
+                    <div class="row justify-content-center align-items-center vh-100">
+                        <div class="col-md-8 text-center text-shadow">
+                            <h1 class="display-2 mb-2"><b>OSM SHIELD</b> PORTAL</h1>
+                            <p class="lead mb-3">Please <a href="{% url 'login' %}"> login </a> to continue
+                        </div>
+                    </div>
 
 
-{% block content %}
-<div class="jumbotron">
-    {% load static %}
-    <img src="{% static "OSM-Logotype-Light-Full-Color-RGB-Large.png" %}" , style="width:250px;">
-    <h1 class="display-4">OSM Shield Mill Portal</h1>
-    <p class="lead">Welcome to the OSM Shield mill portal! Here you can calculate what recipes to use along with how to
-        use them.</p>
-    <hr class="my-4">
-    <p> Click the buttons below to go to our calculators and get started.</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="/calculator/recipe_calculator" role="button">Recipe Calculator</a>
-        <a class="btn btn-primary btn-lg" href="/calculator/pricing_calculator" role="button">Pricing Calculator</a>
-    </p>
-</div>
+                {% endif %}
+        {% endblock %}
 
-{% endblock %}
